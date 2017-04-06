@@ -21,11 +21,6 @@ public class Pascal{
 				numbers[i][j]=numbers[i-1][j-1]+numbers[i-1][j];
 			}
 		}
-		// Testprint of Pascal numbers in array
-		for(int i=0;i<n;i++){
-		for(int j=0;j<n;j++){
-		System.out.print(numbers[i][j]+" ");
-		}System.out.println();}
 		// Get the largest element
 		for(int j=0;j<n;j++){
 			if(numbers[n-1][j]>=highest){ highest = numbers[n-1][j]; }
