@@ -2,7 +2,15 @@ import java.util.*;
 import java.lang.*;
 
 public class Fermat extends Factorization{
-	boolean debug = true;
+	public void run(){
+                 Vector<Integer> result;
+                 Factorization t;
+                 t = new Fermat(numb);
+                 result = t.factorize();
+                 System.out.println(result);
+                 }
+
+	boolean debug = false;
 	Vector<Integer> factorize(){
 		Vector<Integer> result = new Vector<Integer>();
 		int x,y,r,u,v;
@@ -16,15 +24,8 @@ public class Fermat extends Factorization{
 		while(r!=0){
 			r = x*x-y*y-numb;
 			if(r==0){
-				if(y==1){ result.add(x); }
-				else if(x==1){ result.add(y); }
-				else{
-					Factorization n,m;
-					n = new Fermat(x-y);
-					m = new Fermat(x+y);
-					result.addAll(n.factorize());
-					result.addAll(m.factorize());
-				}
+				result.add(x-y);
+				result.add(x+y);
 				return result;
 			}
 			else if(r>0){
