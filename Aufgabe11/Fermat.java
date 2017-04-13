@@ -7,7 +7,7 @@ public class Fermat extends Factorization{
                  Factorization t;
                  t = new Fermat(numb);
                  result = t.factorize();
-                 System.out.println(result);
+                 System.out.println("Fermat "+result);
                  }
 
 	boolean debug = false;
@@ -21,12 +21,13 @@ public class Fermat extends Factorization{
 		if(debug){System.out.println("x= "+x);}
 		y = 0;
 		r = 1; 
-		while(r!=0){
+		int j = 0;
+		while((r!=0) && (Supervision.getResult()==false)){
+//			System.out.println("Fermatresult before: "+Supervision.getResult());
 			r = x*x-y*y-numb;
 			if(r==0){
 				result.add(x-y);
 				result.add(x+y);
-				return result;
 			}
 			else if(r>0){
 					y = y+1;
@@ -37,7 +38,15 @@ public class Fermat extends Factorization{
 					if(debug){System.out.print("x");}
 			}
 			if(debug){System.out.print("   "+r+"   ");}
+			j++;
 		}
+		if(Supervision.getResult()==false){
+			System.out.println("Fermatresult before: "+Supervision.getResult());
+			Supervision.setResult();
+			System.out.println("Fermatresult: "+Supervision.getResult());
+			System.out.println("Fermat was faster");
+		}
+		if(debugall){System.out.println("Fermat j= "+j);}
 		return result;
 	}
 	// ctor

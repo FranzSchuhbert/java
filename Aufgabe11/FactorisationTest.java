@@ -1,19 +1,11 @@
 import java.util.*;
+import java.lang.*;
 
 public class FactorisationTest{
 	static boolean debug = false;
-		// Thread
-/*
-	public void run(){
-		Vector<Integer> result;
-		Factorization t;
-		t = new Testdivision(12);
-		result = t.factorize();
-		System.out.println(result);
-		}*/
-		// MAIN @@@@@
+		// MAIN 
 	public static void main (String [] args){
-		int testnumber = 12;
+		int testnumber = Integer.parseInt(args[0]);
 		Testdivision thread1 = new Testdivision(testnumber);
 		thread1.start();
 		Fermat thread2 = new Fermat(testnumber);
